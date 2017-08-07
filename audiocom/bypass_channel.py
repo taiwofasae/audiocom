@@ -14,4 +14,5 @@ class BypassChannel:
         random.seed()
 
     def xmit_and_recv(self, tx_samples):
-        raise NotImplementedError, "xmit_and_recv"
+        #raise NotImplementedError, "xmit_and_recv"
+	return numpy.random.normal(tx_samples, self.noise)
