@@ -20,7 +20,7 @@ def plot_hist(data, name):
     for d in data:
         if d < 1.0e-6:
             data = numpy.delete(data, d)
-    n, bins, patches = p.hist(data, math.sqrt(len(data)), normed=1,
+    n, bins, patches = p.hist(data, int(math.sqrt(len(data))), normed=1,
                               facecolor='g', alpha=0.75)
     mean = numpy.mean(data)
     std = numpy.std(data)
