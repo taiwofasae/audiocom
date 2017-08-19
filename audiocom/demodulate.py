@@ -4,13 +4,16 @@ import sendrecv
 import math
 
 def avgfilter(samples_in, window):
-    raise NotImplementedError, "avgfilter"
+    #raise NotImplementedError, "avgfilter"
+    return numpy.array([numpy.mean(samples_in[i:min(i+window,len(samples_in))]) for i in range(len(samples_in))])
 
 def lpfilter(samples_in, omega_cut):
     raise NotImplementedError, "lpfilter"
 
 def envelope_demodulator(samples, sample_rate, carrier_freq, spb):
-    raise NotImplementedError, "envelope_demodulator"
+    #raise NotImplementedError, "envelope_demodulator"
+    window = int(sample_rate / (carrier_freq * 2))
+    return avgfilter([abs(s) for s in samples], window)
 
 def avg_demodulator(samples, sample_rate, carrier_freq, spb):
     raise NotImplementedError, "avg_demodulator"
