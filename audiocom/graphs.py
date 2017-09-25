@@ -77,6 +77,6 @@ def plot_graphs(mod_samples, rx_samples, demod_samples, hist_samples, spb,
     p.subplot(313)
     plot_hist(hist_samples, 'demod samples (1-D) histogram')
 
-    #p.figure(2)
-    #plot_eye(demod_samples[plotrange[0]:plotrange[1]], spb, 'eye diagram')
+    p.figure(2)
+    plot_eye(demod_samples[plotrange[0]:plotrange[1]], spb, 'eye diagram')
     p.show()

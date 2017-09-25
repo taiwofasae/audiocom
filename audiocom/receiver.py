@@ -85,6 +85,9 @@ class Receiver:
             print '\tIncrease volume / turn on mic / reduce noise?'
             print '\tOr is there some other synchronization bug? ***'
             print bits
+            p.figure(1)
+            plot_eye(demod_samples, spb, 'eye_diagram')			
+            p.figure(2)
             plot_hist(subsamples, 'samples: no separation between levels?')
             p.show()
             sys.exit(1)
