@@ -15,4 +15,10 @@ class BypassChannel:
 
     def xmit_and_recv(self, tx_samples):
         #raise NotImplementedError, "xmit_and_recv"
-	return numpy.random.normal(tx_samples, self.noise)
+	# Convolve tx_samples with h
+	conv = numpy.convolve(tx_samples, self.h)
+	# Prepend lag samples of value 0
+	lag_samples = numpy.zeros(conv.size + self.lag)
+	lag_samples[self.lag:] = conv
+	# Add gaussian random variable with 0 mean and self.noise variance
+	return numpy.random.normal(lag_samples, self.noise)
